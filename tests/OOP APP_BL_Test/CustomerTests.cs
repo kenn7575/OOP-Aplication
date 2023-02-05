@@ -146,7 +146,6 @@ namespace OOP_APP_BL_Test
                 FName = "John",
                 LName = "Jhonson",
                 Email = "Kenn7575@gmail.com",
-                
                 Phone = "123-456-7890",
                 //missing CustomerID
             };
@@ -181,3 +180,4 @@ namespace OOP_APP_BL_Test
 
     }
 }
+ 
