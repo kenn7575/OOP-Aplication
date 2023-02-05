@@ -28,21 +28,7 @@ namespace OOP_APP
             if (errorsCount > 0) return false;
             else return true;
         }
-        public bool Save()
-        {
-            //code that saves the defined order
-            return true;
-        }
-        public Order Retrieve(int orderID)
-        {
-            //code that retrieves the defined order
-            return new Order();
-        }
-        public List<Order> Retrieve()
-        {
-            //code that retrieves all orders
-            return new List<Order>();
-        }
+        
 
 
     }

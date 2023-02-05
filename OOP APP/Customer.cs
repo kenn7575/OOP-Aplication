@@ -4,24 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OOP_APP_BL
+namespace OOP_APP
 {
     public class Customer
     {
-        public Customer()
+        public Customer() : this(0)
         {
             
         }
         public Customer(int customerID)
         {
             CustomerID = customerID;
+            AddressList = new List<Address>();
+
         }
         //properties
         public string FName { get; set; }
         public string LName { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
-        public string Address { get; set; }
+        public List<Address> AddressList { get; set; }
         public int CustomerID { get; private set; }
         public static int InstanceCount { get; set;}
         public string FullName
@@ -44,7 +46,9 @@ namespace OOP_APP_BL
             if (string.IsNullOrWhiteSpace(LName)) errorsCount++;
             if (string.IsNullOrWhiteSpace(FName)) errorsCount++;
             if (string.IsNullOrWhiteSpace(Email)) errorsCount++;
-            if (string.IsNullOrWhiteSpace(Address)) errorsCount++;
+            //if no address
+            if (AddressList == null || AddressList.Count == 0) errorsCount++;
+
             if (string.IsNullOrWhiteSpace(Phone)) errorsCount++;
             if (CustomerID <= 0) errorsCount++;
 
@@ -52,25 +56,5 @@ namespace OOP_APP_BL
             if (errorsCount > 0) return false;
             else return true;
         }
-        public bool Save()
-        {
-            //code that saves the defined customer
-            return true;
-        }
-        public Customer Retrieve(int customerID)
-        {
-            //code that retrieves the defined customer
-            return new Customer();
-        }
-        public List<Customer> Retrieve()
-        {
-            //code that retrieves all customers
-            return new List<Customer>();
-        }
-
-
-
-
-
     }
 }

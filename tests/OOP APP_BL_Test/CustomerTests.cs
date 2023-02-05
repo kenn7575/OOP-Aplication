@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using OOP_APP_BL;
+using OOP_APP;
 
 namespace OOP_APP_BL_Test
 {
@@ -89,10 +89,20 @@ namespace OOP_APP_BL_Test
                 FName = "John",
                 LName = "Doe",
                 Email = "Kenn7575@gmail.com",
-                Address = "123 Main St",
                 Phone = "123-456-7890"
 
             };
+            Address address = new Address
+            {
+                AddressType = "home",
+                StreetLine1 = "123 Main St",
+                StreetLine2 = "Apt 1",
+                City = "Seattle",
+                State = "WA",
+                Country = "USA",
+                PostalCode = "98101"
+            };
+            customer.AddressList.Add(address);
             bool expected = true;
             //act
             bool actual = customer.Validate();
@@ -108,10 +118,20 @@ namespace OOP_APP_BL_Test
                 FName = "John",
                 LName = "",
                 Email = "Kenn7575@gmail.com",
-                Address = "123 Main St",
                 Phone = "123-456-7890"
 
             };
+            Address address = new Address
+            {
+                AddressType = "home",
+                StreetLine1 = "123 Main St",
+                StreetLine2 = "Apt 1",
+                City = "Seattle",
+                State = "WA",
+                Country = "USA",
+                PostalCode = "98101"
+            };
+            customer.AddressList.Add(address);
             bool expected = false;
             //act
             bool actual = customer.Validate();
@@ -126,10 +146,21 @@ namespace OOP_APP_BL_Test
                 FName = "John",
                 LName = "Jhonson",
                 Email = "Kenn7575@gmail.com",
-                Address = "123 Main St",
+                
                 Phone = "123-456-7890",
                 //missing CustomerID
             };
+            Address address = new Address
+            {
+                AddressType = "home",
+                StreetLine1 = "123 Main St",
+                StreetLine2 = "Apt 1",
+                City = "Seattle",
+                State = "WA",
+                Country = "USA",
+                PostalCode = "98101"
+            };
+            customer.AddressList.Add(address);
             bool expected = false;
             //act
             bool actual = customer.Validate();
