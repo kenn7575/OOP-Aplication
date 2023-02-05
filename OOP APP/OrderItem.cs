@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOP_APP
 {
-    public class OrderItem
+    public class OrderItem : EntityBase
     {
         public OrderItem()
         {
@@ -22,7 +22,7 @@ namespace OOP_APP
         public int Quantity { get; set; }
         public decimal? PurchasePrice { get; set; }
 
-        public bool Validate()
+        public override bool Validate()
         {
             var errorsCount = 0;
             if (OrderItemID <= 0) errorsCount++;
@@ -32,18 +32,6 @@ namespace OOP_APP
 
             if (errorsCount > 0) return false;
             else return true;
-        }
-        public OrderItem Retrieve(int orderItemID)
-        {
-            return new OrderItem();
-        }
-        public List<OrderItem> Retrieve()
-        {
-            return new List<OrderItem>();
-        }
-        public bool Save()
-        {
-            return true;
         }
     }
 }

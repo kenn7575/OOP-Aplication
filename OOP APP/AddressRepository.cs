@@ -64,8 +64,26 @@ namespace OOP_APP
         //save the current address
         public bool Save(Address address)
         {
-            //code that saves the defined address
-            return true;
+            bool success = true;
+            if (address.HasChanges)
+            {
+                if (address.IsValid)
+                {
+                    if (address.IsNeW)
+                    {
+                        //call an insert stored procedure
+                    }
+                    else
+                    {
+                        //call an update stored procedure
+                    }
+                }
+                else
+                {
+                    success = false;
+                }
+            }
+            return success;
         }
     }
 }

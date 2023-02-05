@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOP_APP
 {
-    public class Order
+    public class Order : EntityBase
     {
         public Order() { }
         public Order(int orderID)
@@ -18,7 +18,7 @@ namespace OOP_APP
         public int OrderID { get; private set; }
 
         //methods
-        public bool Validate()
+        public override bool Validate()
         {
             var errorsCount = 0;
             if (OrderDate == null) errorsCount++;

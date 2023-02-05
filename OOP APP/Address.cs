@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOP_APP
 {
-    public class Address
+    public class Address : EntityBase
     {
         public Address():this(0)
         {
@@ -23,7 +23,7 @@ namespace OOP_APP
         public string State { get; set; }
         public string Country { get; set; }
         public string PostalCode { get; set; }
-        public bool Validate()
+        public override bool Validate()
         {
             var isValid = true;
             if (PostalCode == null) isValid = false;

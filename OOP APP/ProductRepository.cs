@@ -28,8 +28,26 @@ namespace OOP_APP
         //saves the current product
         public bool Save(Product product)
         {
-            //code that saves the defined product
-            return true;
+            bool success = true;
+            if (product.HasChanges)
+            {
+                if (product.IsValid)
+                {
+                    if (product.IsNeW)
+                    {
+                        //call an insert stored procedure
+                    }
+                    else
+                    {
+                        //call an update stored procedure
+                    }
+                }
+                else
+                {
+                    success = false;
+                }
+            }
+            return success;
         }
     }
 }

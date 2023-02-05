@@ -36,15 +36,38 @@ namespace OOP_APP_BL_Test
             var productRepository = new ProductRepository();
             var updatedProduct = new Product(1)
             {
+                CurrentPrice = 18M,
                 ProductName = "Sunflowers",
                 Description = "Assorted Size Set of 4 Bright Yellow Mini Sunflowers",
-                CurrentPrice = 15.96M
+                HasChanges = true
             };
-            var expected = true;
+            
             //act
             var actual = productRepository.Save(updatedProduct);
+
             //assert
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(true, actual);
         }
+        [TestMethod]
+        //test save method on invalid data
+        public void SaveTestMissingPrice()
+        {
+            //arrange
+            var productRepository = new ProductRepository();
+            var updatedProduct = new Product(1)
+            {
+                CurrentPrice = null,
+                ProductName = "Sunflowers",
+                Description = "Assorted Size Set of 4 Bright Yellow Mini Sunflowers",
+                HasChanges = true
+            };
+
+            //act
+            var actual = productRepository.Save(updatedProduct);
+
+            //assert
+            Assert.AreEqual(false, actual);
+        }
+
     }
 }

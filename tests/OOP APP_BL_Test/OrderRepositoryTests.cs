@@ -30,7 +30,8 @@ namespace OOP_APP_BL_Test
             var orderRepository = new OrderRepository();
             var updatedOrder = new Order(1)
             {
-                OrderDate = new DateTimeOffset(DateTime.Now.Year, 4, 14, 10, 00, 00, new TimeSpan(7, 0, 0))
+                OrderDate = new DateTimeOffset(DateTime.Now.Year, 4, 14, 10, 00, 00, new TimeSpan(7, 0, 0)),
+                HasChanges = true
             };
             var expected = true;
             //act
@@ -38,6 +39,20 @@ namespace OOP_APP_BL_Test
             //assert
             Assert.AreEqual(expected, actual);
         }
-        
+        [TestMethod]
+        public void SaveTestMissingOrderDate()
+        {
+            //arrange
+            var orderRepository = new OrderRepository();
+            var updatedOrder = new Order(1)
+            {
+                HasChanges = true
+            };
+            var expected = false;
+            //act
+            var actual = orderRepository.Save(updatedOrder);
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

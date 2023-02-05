@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOP_APP
 {
-    public class Customer
+    public class Customer : EntityBase
     {
         public Customer() : this(0)
         {
@@ -39,7 +39,7 @@ namespace OOP_APP
             }
         }
         //methods
-        public bool Validate()
+        public override bool Validate()
         {
             
             var errorsCount = 0;

@@ -40,11 +40,33 @@ namespace OOP_APP_BL_Test
             {
                 Email = "example@gmail.com",
                 FName = "John",
-                LName = "Doe"
+                LName = "Doe",
+                HasChanges = true
             };
             var expected = true;
             //act
             var actual = customerRepository.Save(updatedCustomer);
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        //test save methon with invalid name
+        public void SaveTestMissing()
+        {
+            //arrange
+            var customerRepository = new CustomerRepository();
+            var updatedCustomer = new Customer(1)
+            {
+                Email = "example@gmail.com",
+                //missing first name
+                LName = "Doe",
+                HasChanges = true
+            };
+            var expected = false;
+            //act
+            
+            var actual = customerRepository.Save(updatedCustomer);
+            
             //assert
             Assert.AreEqual(expected, actual);
         }

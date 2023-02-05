@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOP_APP
 {
-    public class Product
+    public class Product : EntityBase
     {
         public Product()
         {
@@ -22,7 +22,7 @@ namespace OOP_APP
         public string Description { get; set; }
         public decimal? CurrentPrice { get; set; }
 
-        public bool Validate()
+        public override bool Validate()
         {
             var errorsCount = 0;
             if (string.IsNullOrWhiteSpace(ProductName)) errorsCount++;
@@ -32,17 +32,6 @@ namespace OOP_APP
             if (errorsCount > 0) return false;
             else return true;
         }
-        public Product Retrieve(int productID)
-        {
-            return new Product();
-        }
-        public List<Product> Retrieve()
-        {
-            return new List<Product>();
-        }
-        public bool Save()
-        {
-            return true;
-        }
+        
     }
 }
